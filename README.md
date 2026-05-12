@@ -6,6 +6,7 @@ A shared expense tracking application for families. Members sign in from their o
 
 - **Firebase Authentication**: Email/password accounts for each family member
 - **Private Families**: Each household has its own invite code and shared expense data
+- **Security Hardening**: Strict Content Security Policy (CSP) and XSS prevention across all views
 - **Dashboard**: Overview of monthly spending, daily average, budget usage, and recent expenses
 - **Expenses**: Add, edit, search, filter, and export family expenses
 - **Added By Tracking**: Expenses record which family member added them
@@ -14,6 +15,8 @@ A shared expense tracking application for families. Members sign in from their o
 - **Budget**: Overall and category budget tracking
 - **Recurring**: Manage subscriptions and recurring bills
 - **AI Voice Assistant**: Navigate tabs and ask FAQs hands-free using voice commands (Web Speech API)
+- **Theme Toggle**: Premium animated dark/light mode toggle switch
+- **Easy Sharing**: One-click clipboard copy for the family invite code
 
 ## Technologies Used
 
