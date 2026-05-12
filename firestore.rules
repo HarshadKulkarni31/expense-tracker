@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function householdPath(householdId) {
+      return /databases/$(database)/documents/households/$(householdId);
+    }
+
+    function isHouseholdMember(householdId) {
+      return signedIn()
+        && get(householdPath(householdId)).data.members[request.auth.uid] == true;
+    }
+
+    match /users/{userId} {
+      allow create, read, update: if signedIn() && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    match /inviteCodes/{inviteCode} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn()
+        && request.resource.data.householdId is string
+        && get(householdPath(request.resource.data.householdId)).data.ownerId == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    match /households/{householdId} {
+      allow create: if signedIn()
+        && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.members[request.auth.uid] == true;
+
+      allow read: if signedIn() && resource.data.members[request.auth.uid] == true;
+
+      allow update: if signedIn() && (
+        resource.data.members[request.auth.uid] == true
+        || (
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['members', 'memberNames'])
+          && resource.data.members[request.auth.uid] != true
+          && request.resource.data.members[request.auth.uid] == true
+          && exists(/databases/$(database)/documents/inviteCodes/$(resource.data.inviteCode))
+        )
+      );
+
+      allow delete: if signedIn() && resource.data.ownerId == request.auth.uid;
+
+      match /data/{dataDoc} {
+        allow read, write: if isHouseholdMember(householdId);
+      }
+    }
+  }
+}

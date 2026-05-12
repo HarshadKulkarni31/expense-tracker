@@ -1,0 +1,130 @@
+/* ============================================================
+   RECURRING — Bills list, status badges, overdue effects
+   ============================================================ */
+
+.recurring-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-base);
+}
+
+.recurring-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.recurring-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-lg);
+}
+
+.recurring-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.recurring-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.recurring-card.overdue {
+  border-color: rgba(255, 71, 87, 0.3);
+  box-shadow: 0 0 24px rgba(255, 71, 87, 0.08);
+}
+
+.recurring-card.overdue::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--danger);
+}
+
+.recurring-card.due-today {
+  border-color: rgba(255, 170, 0, 0.3);
+}
+
+.recurring-card.due-today::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--warning);
+}
+
+.recurring-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-base);
+}
+
+.recurring-card-title {
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-xs);
+}
+
+.recurring-card-amount {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+}
+
+.recurring-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.recurring-detail {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.recurring-detail svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.recurring-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.recurring-card-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .recurring-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .recurring-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,85 @@
+/* ============================================================
+   ANALYTICS — Charts layout, top spending days
+   ============================================================ */
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.analytics-full-width {
+  margin-bottom: var(--space-xl);
+}
+
+.top-spending-days {
+  margin-top: var(--space-base);
+}
+
+.spending-day-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-base);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.spending-day-item:last-child {
+  border-bottom: none;
+}
+
+.spending-day-rank {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--text-tertiary);
+  width: 28px;
+  text-align: center;
+}
+
+.spending-day-rank.top-3 {
+  color: var(--accent-light);
+}
+
+.spending-day-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.spending-day-date {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  margin-bottom: 4px;
+}
+
+.spending-day-bar {
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.spending-day-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transition: width 0.8s var(--ease-out);
+}
+
+.spending-day-amount {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-base);
+  white-space: nowrap;
+}
+
+.analytics-month-selector {
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 1024px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}

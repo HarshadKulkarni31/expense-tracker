@@ -1,0 +1,154 @@
+/* ============================================================
+   BUDGET — Progress bars, alerts, projected vs actual
+   ============================================================ */
+
+.budget-overall {
+  margin-bottom: var(--space-xl);
+}
+
+.budget-overall .progress-bar-track {
+  height: 20px;
+}
+
+.budget-overall-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.budget-overall-amount {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+.budget-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.budget-category-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.budget-category-card:hover {
+  border-color: var(--border-hover);
+}
+
+.budget-category-card.warning {
+  border-color: rgba(255, 170, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.05);
+}
+
+.budget-category-card.danger {
+  border-color: rgba(255, 71, 87, 0.3);
+  box-shadow: 0 0 20px rgba(255, 71, 87, 0.05);
+}
+
+.budget-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-base);
+}
+
+.budget-category-name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: var(--fw-semibold);
+}
+
+.budget-category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+}
+
+.budget-category-amounts {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.budget-category-amounts .spent {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-medium);
+}
+
+.budget-category-amounts .limit {
+  font-family: var(--font-mono);
+}
+
+.budget-chart-section {
+  margin-top: var(--space-xl);
+}
+
+.budget-alert-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-base) var(--space-lg);
+  background: var(--warning-bg);
+  border: 1px solid rgba(255, 170, 0, 0.2);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  animation: fadeInDown var(--duration-slow) var(--ease-out);
+}
+
+.budget-alert-banner.danger {
+  background: var(--danger-bg);
+  border-color: rgba(255, 71, 87, 0.2);
+}
+
+.budget-alert-banner svg {
+  width: 20px;
+  height: 20px;
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+.budget-alert-banner.danger svg {
+  color: var(--danger);
+}
+
+.budget-alert-text {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+}
+
+.budget-set-btn {
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+  .budget-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-overall-amount {
+    font-size: var(--fs-xl);
+  }
+
+  .budget-overall-stats,
+  .budget-category-amounts {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .budget-alert-banner {
+    align-items: flex-start;
+    padding: var(--space-base);
+  }
+}

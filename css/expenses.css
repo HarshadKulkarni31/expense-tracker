@@ -1,0 +1,56 @@
+/* ============================================================
+   EXPENSES — Table view with search, filters, inline edit
+   ============================================================ */
+
+.expenses-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-base);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.expenses-filters {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.expenses-filters .form-select {
+  min-width: 140px;
+}
+
+.expense-row-editing td {
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+.expense-row-editing .form-input,
+.expense-row-editing .form-select {
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-sm);
+}
+
+.inline-edit-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+@media (max-width: 768px) {
+  .expenses-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-wrapper {
+    max-width: 100%;
+  }
+  
+  .expenses-filters {
+    width: 100%;
+  }
+  
+  .expenses-filters .form-select {
+    flex: 1;
+  }
+}
