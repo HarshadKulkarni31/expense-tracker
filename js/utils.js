@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // UTILS — Formatters, date helpers, CSV export, ID generator
 // ============================================================
 
@@ -196,4 +196,14 @@ export function getProgressColor(percentage) {
   if (percentage >= 85) return 'red';
   if (percentage >= 60) return 'amber';
   return 'green';
+}
+
+export function escapeHtml(value) {
+  if (value === null || value === undefined) return '';
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }

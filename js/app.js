@@ -6,7 +6,7 @@ import { renderAuthScreen, renderHouseholdScreen, renderLoadingScreen } from './
 import { initRouter, refreshCurrentView } from './router.js?v=family-auth-5';
 import { initChartDefaults } from './charts.js?v=family-auth-5';
 import { store } from './store.js?v=family-auth-5';
-import { exportToCSV } from './utils.js?v=family-auth-5';
+import { exportToCSV, escapeHtml } from './utils.js?v=family-auth-5';
 import { showToast } from './components/toast.js?v=family-auth-5';
 import { initVoiceAssistant } from './voice.js';
 import {
@@ -314,11 +314,4 @@ function cleanFirebaseError(error) {
     .replace(/\s*\(permission-denied\)\.?$/, '');
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
-}
+

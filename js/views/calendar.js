@@ -1,9 +1,9 @@
-﻿// ============================================================
+// ============================================================
 // CALENDAR VIEW — Visual calendar with spend amounts per day
 // ============================================================
 
 import { store } from '../store.js?v=family-auth-5';
-import { formatCurrency, formatDateFull, MONTH_NAMES, DAY_NAMES, getDaysInMonth, getFirstDayOfMonth, toDateString, isToday, sumBy, groupBy, CATEGORY_COLORS, getCategoryBadgeClass } from '../utils.js?v=family-auth-5';
+import { formatCurrency, formatDateFull, MONTH_NAMES, DAY_NAMES, getDaysInMonth, getFirstDayOfMonth, toDateString, isToday, sumBy, groupBy, CATEGORY_COLORS, getCategoryBadgeClass, escapeHtml } from '../utils.js?v=family-auth-5';
 
 let calYear, calMonth, selectedDate = null;
 
@@ -112,8 +112,8 @@ export function renderCalendar() {
             ${selectedExpenses.map(e => `
               <div class="day-expense-item">
                 <div>
-                  <div class="desc">${e.description}</div>
-                  <div class="cat"><span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${e.category}</span></div>
+                  <div class="desc">${escapeHtml(e.description)}</div>
+                  <div class="cat"><span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${escapeHtml(e.category)}</span></div>
                 </div>
                 <div class="amount">${formatCurrency(e.amount)}</div>
               </div>`).join('')}

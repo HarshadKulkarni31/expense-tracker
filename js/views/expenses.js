@@ -1,9 +1,9 @@
-﻿// ============================================================
+// ============================================================
 // EXPENSES VIEW — Table with search, filter, inline edit, delete
 // ============================================================
 
 import { store } from '../store.js?v=family-auth-5';
-import { formatCurrency, formatDate, CATEGORIES, MONTH_NAMES, getCategoryBadgeClass, generateId, toDateString } from '../utils.js?v=family-auth-5';
+import { formatCurrency, formatDate, CATEGORIES, MONTH_NAMES, getCategoryBadgeClass, generateId, toDateString, escapeHtml } from '../utils.js?v=family-auth-5';
 import { openExpenseModal } from '../components/modal.js?v=family-auth-5';
 import { showToast } from '../components/toast.js?v=family-auth-5';
 
@@ -131,9 +131,9 @@ function renderRow(e) {
   return `
     <tr>
       <td>${formatDate(e.date)}</td>
-      <td><span class="fw-medium">${e.description}</span></td>
-      <td><span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${e.category}</span></td>
-      <td>${e.createdByName || 'Family member'}</td>
+      <td><span class="fw-medium">${escapeHtml(e.description)}</span></td>
+      <td><span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${escapeHtml(e.category)}</span></td>
+      <td>${escapeHtml(e.createdByName || 'Family member')}</td>
       <td class="table-amount" style="text-align: right;">${formatCurrency(e.amount)}</td>
       <td>
         <div class="table-actions" style="justify-content: center;">

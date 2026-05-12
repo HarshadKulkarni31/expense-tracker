@@ -1,9 +1,9 @@
-﻿// ============================================================
+// ============================================================
 // RECURRING VIEW — Recurring bills management
 // ============================================================
 
 import { store } from '../store.js?v=family-auth-5';
-import { formatCurrency, formatDate, toDateString, daysBetween, generateId, sumBy, getCategoryBadgeClass, CATEGORY_COLORS } from '../utils.js?v=family-auth-5';
+import { formatCurrency, formatDate, toDateString, daysBetween, generateId, sumBy, getCategoryBadgeClass, CATEGORY_COLORS, escapeHtml } from '../utils.js?v=family-auth-5';
 import { openRecurringModal } from '../components/modal.js?v=family-auth-5';
 import { showToast } from '../components/toast.js?v=family-auth-5';
 
@@ -104,7 +104,7 @@ export function renderRecurring() {
           <div class="recurring-card ${cardClass}">
             <div class="recurring-card-header">
               <div>
-                <div class="recurring-card-title">${r.description}</div>
+                <div class="recurring-card-title">${escapeHtml(r.description)}</div>
                 ${statusBadge}
               </div>
               <div class="recurring-card-amount">${formatCurrency(r.amount)}</div>
@@ -112,7 +112,7 @@ export function renderRecurring() {
             <div class="recurring-card-details">
               <div class="recurring-detail">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-                <span class="badge badge-category ${getCategoryBadgeClass(r.category)}">${r.category}</span>
+                <span class="badge badge-category ${getCategoryBadgeClass(r.category)}">${escapeHtml(r.category)}</span>
               </div>
               <div class="recurring-detail">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>

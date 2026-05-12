@@ -1,9 +1,9 @@
-﻿// ============================================================
+// ============================================================
 // DASHBOARD VIEW
 // ============================================================
 
 import { store } from '../store.js?v=family-auth-5';
-import { formatCurrency, CATEGORY_COLORS, MONTH_NAMES_SHORT, sumBy, groupBy, getMonthsRange, getCategoryBadgeClass, formatDateShort } from '../utils.js?v=family-auth-5';
+import { formatCurrency, CATEGORY_COLORS, MONTH_NAMES_SHORT, sumBy, groupBy, getMonthsRange, getCategoryBadgeClass, formatDateShort, escapeHtml } from '../utils.js?v=family-auth-5';
 import { createLineChart, createDoughnutChart } from '../charts.js?v=family-auth-5';
 
 export function renderDashboard() {
@@ -140,8 +140,8 @@ export function renderDashboard() {
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
             </div>
             <div class="recent-item-info">
-              <div class="recent-item-desc">${e.description}</div>
-              <div class="recent-item-date">${formatDateShort(e.date)} · ${e.createdByName || 'Family member'} · <span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${e.category}</span></div>
+              <div class="recent-item-desc">${escapeHtml(e.description)}</div>
+              <div class="recent-item-date">${formatDateShort(e.date)} · ${escapeHtml(e.createdByName || 'Family member')} · <span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${escapeHtml(e.category)}</span></div>
             </div>
             <div class="recent-item-amount">${formatCurrency(e.amount)}</div>
           </div>`).join('') : '<div class="empty-state"><p>No expenses yet. Add your first expense!</p></div>'}
