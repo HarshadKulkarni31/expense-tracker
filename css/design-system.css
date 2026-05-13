@@ -404,7 +404,7 @@ h5 { font-size: var(--fs-md);  }
   display: flex;
   align-items: center;
   gap: var(--space-xs);
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 4px;
 }
 .sidebar-family-code-container span {
