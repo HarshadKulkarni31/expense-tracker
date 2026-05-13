@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // BUDGET VIEW — Set budgets, progress bars, alerts, projected chart
 // ============================================================
 
@@ -117,7 +117,7 @@ export function renderBudget() {
         </div>`).join('') : `
         <div class="card" style="grid-column: 1 / -1;">
           <div class="empty-state">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_puciaact.json" background="transparent" speed="1" style="width: 150px; height: 150px; margin: 0 auto var(--space-base);" loop autoplay></lottie-player>
             <h3>No category budgets set</h3>
             <p>Set budgets per category to track your spending limits</p>
           </div>

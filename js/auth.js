@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // AUTH UI - Sign in, sign up, and household onboarding screens
 // ============================================================
 
@@ -13,7 +13,7 @@ export function renderLoadingScreen(message = 'Loading your family workspace...'
           <p>${escapeHtml(message)}</p>
         </div>
       </div>
-      <div class="auth-loader"></div>
+      <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json" background="transparent" speed="1" style="width: 100px; height: 100px; margin: var(--space-base) auto 0;" loop autoplay></lottie-player>
     </div>`;
 }
 

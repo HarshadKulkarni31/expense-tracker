@@ -144,7 +144,7 @@ export function renderDashboard() {
               <div class="recent-item-date">${formatDateShort(e.date)} · ${escapeHtml(e.createdByName || 'Family member')} · <span class="badge badge-category ${getCategoryBadgeClass(e.category)}">${escapeHtml(e.category)}</span></div>
             </div>
             <div class="recent-item-amount">${formatCurrency(e.amount)}</div>
-          </div>`).join('') : '<div class="empty-state"><p>No expenses yet. Add your first expense!</p></div>'}
+          </div>`).join('') : '<div class="empty-state"><lottie-player src="https://assets10.lottiefiles.com/packages/lf20_puciaact.json" background="transparent" speed="1" style="width: 120px; height: 120px; margin: 0 auto var(--space-sm);" loop autoplay></lottie-player><p>No expenses yet. Add your first expense!</p></div>'}
       </div>
     </div>`;
 
